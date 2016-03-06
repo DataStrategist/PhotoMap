@@ -1,7 +1,7 @@
 library(leaflet)
 library(magrittr)
 
-# ## Proof of concept ####
+########### Proof of concept to see if we can use pictures as "pins" and assignn an html caption (which pops up the big picture)####
 # greenLeafIcon <- makeIcon(
 #   iconUrl = "https://avatars2.githubusercontent.com/u/8094091?v=3&s=460",
 #   iconWidth = 95, iconHeight = 95,
@@ -11,7 +11,7 @@ library(magrittr)
 # leaflet(data = quakes[1:4,]) %>% addTiles() %>%
 #   addMarkers(~long, ~lat, icon = greenLeafIcon, popup = '<img src="https://avatars2.githubusercontent.com/u/8094091?v=3&s=460">')
 
-# ## EXAMPLE #####
+########### Example to use multiple icons on leaflet #####
 # # Make a list of icons. We'll index into it based on name.
 # Suns <- iconList(
 #   ship =   makeIcon("ferry-18.png",  18, 18),
@@ -34,8 +34,7 @@ library(magrittr)
 #   # Select from oceanIcons based on df$type
 #   addMarkers(icon = ~Suns[type])
 
-## ACTUAL #####
-
+########### Now do it for real! #####
 ## Make a list of icons. In theory, it should be possible to pass these in as a column in a df, but I couldn't get iconList()
 ## to see them correctly, so it was just as fast to just copypaste in. Use Make.Icons.with.this.xls to do this part.
 Suns <- iconList(
@@ -127,6 +126,8 @@ Suns <- iconList(
   P86 = makeIcon("Venice, Italy(2) - Heidi.s.jpg",iconAnchorX = 50, iconAnchorY = 50),
   P87 = makeIcon("Whitstable, UK - Sian.s.jpg",iconAnchorX = 50, iconAnchorY = 50)
 )
+
+
 
 ## Read data in
   coords <- read.csv("coords.csv")
