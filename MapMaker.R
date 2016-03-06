@@ -36,7 +36,8 @@ library(magrittr)
 
 ## ACTUAL #####
 
-# Make a list of icons. We'll index into it based on name.
+## Make a list of icons. In theory, it should be possible to pass these in as a column in a df, but I couldn't get iconList()
+## to see them correctly, so it was just as fast to just copypaste in. Use Make.Icons.with.this.xls to do this part.
 Suns <- iconList(
   P1 = makeIcon("Accra, Ghana - Laure.s.jpg",iconAnchorX = 50, iconAnchorY = 50),
   P2 = makeIcon("Annecy, France - Charlotte.s.jpg",iconAnchorX = 50, iconAnchorY = 50),
@@ -139,5 +140,5 @@ df <- sp::SpatialPointsDataFrame(
 )
 
 leaflet(df) %>% addTiles() %>%
-  # Select from oceanIcons based on df$type
+  # Select Icons and asign popup text
   addMarkers(icon = ~Suns[type],popup = coords$tt)
